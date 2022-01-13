@@ -1,0 +1,100 @@
+# include <iostream>
+# include <vector>
+# include <set>
+# include <algorithm>
+# include <map>
+# include <math.h>
+# include <cstdlib>
+# include <cmath>
+# include <set>
+# include <queue>
+# include <iomanip>
+# include <stack>
+# include <cstring>
+# include <deque>
+#include<string> 
+
+using namespace std;
+
+# define int long long
+
+#define fio ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+signed main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+
+        // 0 -> right
+        // 1-> down
+        int n,k;
+        cin>>n>>k;
+        char a[n][n];
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0;  j<n; j++)
+            {
+                cin>>a[i][j];
+            }
+        }
+        int dp[n][n][2][k+1];
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                for(int u=0; u<=k; u++)
+                {
+                    dp[i][j][0][u]=0;
+                    dp[i][j][1][u]=0;
+                }
+            }
+        }
+        for(int i=0; i<n; i++)
+        {
+            if(a[0][i]!='H')
+            {
+            dp[0][i][0][0]=1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        for(int i=0; i<n; i++)
+        {
+            if(a[i][0]!='H')
+            {
+            dp[i][0][1][0]=1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        for(int i=1; i<n; i++)
+        {
+            for(int j=1; j<n; j++)
+            {
+                if(a[i][j]!='H')
+                {
+                for(int u=1; u<=k; u++)
+                {
+                    dp[i][j][1][u]=dp[i-1][j][0][u-1];
+                    dp[i][j][0][u]=dp[i][j-1][1][u-1];
+                    dp[i][j][0][u]=dp[i][j][0][u]+dp[i][j-1][0][u];
+                    dp[i][j][1][u]=dp[i][j][1][u]+dp[i-1][j][1][u];
+                }
+                }
+            }
+        }
+        int ans=0;
+        for(int i=0; i<=k; i++)
+        {
+            ans=ans+dp[n-1][n-1][0][i];
+            ans=ans+dp[n-1][n-1][1][i];
+        }
+        cout<<ans<<endl;
+    }
+}
