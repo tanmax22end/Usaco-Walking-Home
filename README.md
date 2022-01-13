@@ -22,4 +22,6 @@ dp[i][j][1][k] = dp[i-1][j][1][k] -> for no change of direction.
 
 Similarly we can do for dp[i][j][0][k].
 
+### Time Complexity comes out to be O(n^2.k)
+
 I hope it helps.
