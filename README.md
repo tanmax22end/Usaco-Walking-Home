@@ -17,8 +17,8 @@
 similarly dp[i][j][0][k] for bessie facing towards right.
 
 4. Now bessie can only face downwads if it comes from cell (i-1,j). Similarly to face towards right it has to come from (i,j-1).
-dp[i][j][1][k] = dp[i-1][j][0][k-1] -> if it has to take a turn from (i-1,j).
-dp[i][j][1][k] = dp[i-1][j][1][k] -> for no change of direction.
+5. dp[i][j][1][k] = dp[i-1][j][0][k-1] -> if it has to take a turn from (i-1,j).
+6. dp[i][j][1][k] = dp[i-1][j][1][k] -> for no change of direction.
 
 Similarly we can do for dp[i][j][0][k].
 
