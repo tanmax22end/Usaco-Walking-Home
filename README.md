@@ -1,6 +1,6 @@
 # Usaco_Walking_Home
 ## Explanation and source code of the problem
-### This problem was asked USACO 2021 December Contest, Bronze
+### This problem was asked in USACO 2021 December Contest, Bronze
 
 1. Lets first define the state of bessie in a cell (i,j) where(0<=i<n, 0<=j<n) and it doesn't contain any haybales.
 
