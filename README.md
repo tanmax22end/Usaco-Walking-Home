@@ -4,7 +4,7 @@
 
 1. Lets first define the state of bessie in a cell (i,j) where(0<=i<n, 0<=j<n) and it doesn't contain any haybales.
 
-2. There are only two possilble state of bessie either he/she maybe facing right or down.
+2. There are only two possible state of bessie either he/she maybe facing right or down.
 
 3. Lets say we denote right as 0 and down as 1 in our dp state.
 
